@@ -8,3 +8,6 @@ export * from './lib/interfaces/ApiData';
 
 export * from './lib/services/auth.service';
 export * from './lib/services/http.service';
+
+//Interceptor
+export * from './lib/middleware/https-header.interceptor'
