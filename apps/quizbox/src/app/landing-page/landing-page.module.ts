@@ -5,8 +5,11 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LandingPageComponent],
-  imports: [CommonModule, RouterModule.forChild(
-    [{ path: '', component: LandingPageComponent }]
-  )],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(
+      [{ path: '', component: LandingPageComponent }]
+    ),
+  ],
 })
 export class LandingPageModule { }

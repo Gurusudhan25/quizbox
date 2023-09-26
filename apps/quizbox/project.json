@@ -48,6 +48,10 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "quizbox:build:development",
+        "proxyConfig": "apps/quizbox/src/proxy.config.json"
+      },
       "configurations": {
         "production": {
           "browserTarget": "quizbox:build:production"
@@ -61,7 +65,8 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "quizbox:build"
+        "browserTarget": "quizbox:build",
+        "proxyConfig": "src/proxy.config.json"
       }
     },
     "lint": {

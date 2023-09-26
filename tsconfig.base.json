@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@quizbox-fe/qb-api": ["libs/qb-api/src/index.ts"],
+      "@quizbox-fe/qb-ui": ["libs/qb-ui/src/index.ts"],
       "@quizbox-fe/qb-utils": ["libs/qb-utils/src/index.ts"]
     }
   },
