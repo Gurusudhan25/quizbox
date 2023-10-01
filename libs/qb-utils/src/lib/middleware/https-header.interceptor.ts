@@ -15,10 +15,8 @@ export class HttpsHeaderInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request.headers.set('Content-Type', 'application/json');
-    request.headers.set('Accept', '*/*');
-    request.headers.set('Access-Control-Allow-Origin', '*');
-    request.headers.append('name', 'guru');
-    return next.handle(request);
+
+    const clonedRequest = request.clone({ headers: request.headers.append('Access-Control-Allow-Origin', 'http://localhost:8080/') });
+    return next.handle(clonedRequest);
   }
 }

@@ -16,6 +16,6 @@ export class AuthService {
   }
 
   checkingApi() {
-    this.httpService.get(UriHelper.getUrl('localhost:8080/api/getDefaultQuestions')).subscribe();
+    this.httpService.get(UriHelper.getUrl('getDefaultQuestions')).subscribe(data => console.log(data));
   }
 }
