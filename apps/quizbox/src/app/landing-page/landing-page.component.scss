@@ -1,17 +1,105 @@
+@import '../../assets/styles/mixin';
 
 .header-nav {
   background-color: #ffe245;
-  height: 80px;
-  
+  height: fit-content;
+  padding: 0 3rem;
+
+  figure {
+    margin: 0.5rem 0;
+  }
+
   .navs {
-    ul {
-      margin-bottom: 0;
-      li {
+    a {
+      font-family: 'lexend-semibold';
+      font-size: 16px;
+      list-style: none;
+      margin-left: 24px;
+      text-decoration: none;
+      color: #070707;
+    }
+
+    .auth-grp {
+      background-color: #FFF07C;
+      height: 52px;
+      width: 180px;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      margin-left: 1rem;
+
+      button {
+        background-color: transparent;
         font-family: 'lexend-semibold';
-        font-size: 20px;
-        list-style: none;
-        margin-left: 24px;
+        border: unset;
+
+        &:first-child {
+          background-color: #ffe245;
+          border-radius: 1rem;
+          height: 38px;
+          width: 100px;
+          box-shadow: 13px 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        &:last-child {
+          margin-left: 0.5rem;
+        }
       }
+    }
+  }
+
+  @include breakpoint(small, down) {
+    display: none !important;
+  }
+}
+
+.banner-holder {
+  background-color: #ffe245;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 2rem 1rem;
+
+  .banner-info {
+    width: 512px;
+
+    h1 {
+      height: 252px;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      font-family: 'lexend-black';
+      color: #070707;
+
+      span {
+        color: #3E15FF;
+      }
+    }
+
+    p {
+      font-family: 'lexend-medium';
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3E15FF;
+      font-family: 'lexend-medium';
+      color: white;
+      height: 2.5rem;
+      padding: 0.5rem 1.25rem;
+      border: unset;
+      font-size: 1rem;
+      border-radius: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
   }
 }

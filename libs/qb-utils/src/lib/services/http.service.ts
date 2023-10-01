@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   get(url: string): Observable<ApiData> {
-    return this.http.get<ApiData>(url).pipe(map(res => res.data));
+    return this.http.get<ApiData>(url);
   }
 
   patch(url: string, data: any): Observable<ApiData> {
