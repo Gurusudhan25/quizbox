@@ -63,6 +63,10 @@
   gap: 100px;
   padding: 2rem 1rem;
 
+  @include breakpoint(medium, down) {
+    gap: unset;
+  }
+
   .banner-info {
     width: 512px;
 

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpsHeaderInterceptor } from '@quizbox-fe/qb-utils';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { HttpsHeaderInterceptor } from '@quizbox-fe/qb-utils';
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    BrowserAnimationsModule,
   ],
   providers: [
     {
