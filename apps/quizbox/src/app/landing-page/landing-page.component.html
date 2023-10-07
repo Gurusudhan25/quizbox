@@ -13,8 +13,8 @@
         <a class="align-self-center">Feedback</a>
         
         <div class="auth-grp">
-          <button mat-raised-button color="accent">Signin</button>
-          <button mat-raised-button color="accent">Signup</button>
+          <button mat-raised-button color="accent" (click)="navigate('signin')">Signin</button>
+          <button mat-raised-button color="accent" (click)="navigate('signup')">Signup</button>
         </div>
 
       </div>
@@ -22,17 +22,21 @@
 
   </div>
 
-  <div class="banner-holder">
+  <div class="banner-wrap">
+    <div class="banner-holder">
 
-    <section class="banner-info">
-      <h1>Enrich learning with Our <span>Quizbox</span></h1>
-      <p>This is a pond were you can create new quiz and we make your assessments simple</p>
-      <button mat-raised-button color="primary">Start</button>
-    </section>
-    <section class="banner-img">
-      <figure>
-        <img src="assets/images/banner.png" alt="banner" >
-      </figure>
-    </section>
+      <section class="banner-info">
+        <h1>Enrich learning with Our <span>Quizbox</span></h1>
+        <p>This is a pond were you can create new quiz and we make your assessments simple</p>
+        <button mat-raised-button color="primary" (click)="startDemoQuiz()">Start</button>
+      </section>
+      <section class="banner-img">
+        <figure>
+          <img src="assets/images/banner.png" alt="banner" >
+        </figure>
+      </section>
+    </div>
   </div>
 </div>
+
+<router-outlet></router-outlet>

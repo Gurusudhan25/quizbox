@@ -1,16 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@quizbox-fe/qb-utils';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'quizbox-fe-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit {
-  constructor(private auth: AuthService) {
+export class LandingPageComponent {
 
+  constructor(
+    private router: Router
+  ) {
   }
-  ngOnInit(): void {
-      this.auth.checkingApi();
+
+  navigate(loc: string): void {
+    this.router.navigateByUrl(loc);
   }
- }
+
+  startDemoQuiz() {
+    this.router.navigate(['quiz'], {
+      queryParams: {
+        type: 'demo'
+      }
+    });
+  }
+
+}

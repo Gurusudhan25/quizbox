@@ -15,7 +15,4 @@ export class AuthService {
     localStorage.getItem('user')
   }
 
-  checkingApi() {
-    this.httpService.get(UriHelper.getUrl('getDefaultQuestions')).subscribe(data => console.log(data));
-  }
 }
