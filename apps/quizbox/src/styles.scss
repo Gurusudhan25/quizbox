@@ -4,15 +4,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 @import './assets/styles/font';
-@import './assets/styles/variable';
 @import './assets/styles/mixin';
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: 'lexend-medium';
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: 'lexend-medium'; }

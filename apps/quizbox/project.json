@@ -71,14 +71,21 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/quizbox/**/*.ts", "apps/quizbox/**/*.html"]
+        "lintFilePatterns": [
+          "apps/quizbox/**/*.ts",
+          "apps/quizbox/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/quizbox/jest.config.ts",
         "passWithNoTests": true
