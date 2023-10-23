@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuestionService, Questions } from '@quizbox-fe/qb-utils';
+import { tap } from 'rxjs';
+import { QuizPageService } from '../quiz-page/quiz-page.service';
 
 @Component({
   selector: 'quizbox-fe-landing-page',
@@ -9,7 +12,9 @@ import { Router } from '@angular/router';
 export class LandingPageComponent {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private qnService: QuestionService,
+    private qbPageService: QuizPageService
   ) {
   }
 
@@ -18,6 +23,14 @@ export class LandingPageComponent {
   }
 
   startDemoQuiz() {
+    this.qnService.getDefaultQuestions()
+      .pipe(
+        tap((questions: Questions[]) => {
+          this.qbPageService.setQuestions(questions);
+        })
+      )
+      .subscribe();
+
     this.router.navigate(['quiz'], {
       queryParams: {
         type: 'demo'

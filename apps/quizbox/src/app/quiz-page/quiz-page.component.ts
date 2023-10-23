@@ -1,20 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { QuizPageService } from "./quiz-page.service";
-import { sampleQuestions } from "@quizbox-fe/qb-utils";
 
 @Component({
   selector: 'quiz-page',
   templateUrl: './quiz-page.component.html',
   styleUrls: ['./quiz-page.component.scss']
 })
-export class QuizPageComponent implements OnInit {
+export class QuizPageComponent {
+  questions;
 
   constructor(private quizPageService: QuizPageService) {
-    quizPageService.setQuestions(sampleQuestions);
+    this.questions = this.quizPageService.getQuestions()
   }
 
-  ngOnInit(): void {
-    this.quizPageService.getQuestions()
-  }
 
 }

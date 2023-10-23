@@ -9,19 +9,19 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  get(url: string): Observable<ApiData> {
-    return this.http.get<ApiData>(url);
+  get(url: string): Observable<any> {
+    return this.http.get<ApiData>(url).pipe(map(res => res.data));
   }
 
-  patch(url: string, data: any): Observable<ApiData> {
+  patch(url: string, data: any): Observable<any> {
     return this.http.patch<ApiData>(url, data).pipe(map(res => res.data));
   }
 
-  delete(url: string): Observable<ApiData> {
+  delete(url: string): Observable<any> {
     return this.http.delete<ApiData>(url).pipe(map(res => res.data));
   }
 
-  post(url: string, data: any): Observable<ApiData> {
+  post(url: string, data: any): Observable<any> {
     return this.http.post<ApiData>(url, data).pipe(map(res => res.data));
   }
 }
