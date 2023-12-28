@@ -23,19 +23,12 @@ export class LandingPageComponent {
   }
 
   startDemoQuiz() {
-    this.qnService.getDefaultQuestions()
-      .pipe(
-        tap((questions: Questions[]) => {
-          this.qbPageService.setQuestions(questions);
-        })
-      )
-      .subscribe();
-
-    this.router.navigate(['quiz'], {
-      queryParams: {
-        type: 'demo'
-      }
-    });
+    this.qnService.getDefaultQuestions().pipe(
+      tap((questions: Questions[]) => {
+        this.qbPageService.setQuestions(questions);
+        this.router.navigate(['quiz'], { queryParams: { type: 'demo' } });
+      })
+    ).subscribe();
   }
 
 }

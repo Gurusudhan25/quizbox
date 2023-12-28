@@ -1,1 +1,34 @@
-<h1>quizpage</h1>
+<div class="quiz-page-warp" *ngIf="isQuizStarted">
+
+  <div>
+    <button mat-fab color="primary" [disabled]="disablePrevBtn" (click)="changePrevQuestion()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  </div>
+
+  <mat-card *ngLet="setActiveQuestion | async as activeQuestion" class="border-card">
+    <mat-card-header>
+      <mat-card-title>{{activeQuestion?.question}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group class="d-flex flex-column" color="primary">
+        <mat-radio-button [value]="activeQuestion?.answer_a">{{activeQuestion?.answer_a}}</mat-radio-button>
+        <mat-radio-button [value]="activeQuestion?.answer_b">{{activeQuestion?.answer_b}}</mat-radio-button>
+        <mat-radio-button [value]="activeQuestion?.answer_c">{{activeQuestion?.answer_c}}</mat-radio-button>
+        <mat-radio-button [value]="activeQuestion?.answer_d">{{activeQuestion?.answer_d}}</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <!-- <mat-card-actions align="end">
+      <button mat-raised-button> <mat-icon fontIcon="chevron_left"></mat-icon> Previous
+      </button>
+      <button mat-raised-button color="primary">Next <mat-icon fontIcon="chevron_right"></mat-icon>
+      </button>
+    </mat-card-actions> -->
+  </mat-card>
+
+  <div>
+    <button mat-fab color="primary" [disabled]="disableNextBtn" (click)="changeNextQuestion()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>

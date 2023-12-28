@@ -49,15 +49,15 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "browserTarget": "quizbox:build:development",
-        "proxyConfig": "apps/quizbox/src/proxy.config.json"
+        "proxyConfig": "apps/quizbox/src/proxy.config.json",
+        "buildTarget": "quizbox:build:development"
       },
       "configurations": {
         "production": {
-          "browserTarget": "quizbox:build:production"
+          "buildTarget": "quizbox:build:production"
         },
         "development": {
-          "browserTarget": "quizbox:build:development"
+          "buildTarget": "quizbox:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,36 +65,22 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "quizbox:build",
-        "proxyConfig": "src/proxy.config.json"
+        "proxyConfig": "src/proxy.config.json",
+        "buildTarget": "quizbox:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/quizbox/**/*.ts",
-          "apps/quizbox/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/quizbox/**/*.ts", "apps/quizbox/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/quizbox/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/quizbox/jest.config.ts"
       }
     }
   }

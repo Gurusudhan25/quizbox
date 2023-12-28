@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { createStore } from '@ngneat/elf';
-import { withEntities, setEntities } from '@ngneat/elf-entities'
+import { withEntities, setEntities, selectAllEntities, withActiveId, selectActiveEntity } from '@ngneat/elf-entities'
 import { Questions } from '@quizbox-fe/qb-utils';
+import { Observable } from 'rxjs';
 
-const questionStore = createStore({ name: 'questions' }, withEntities<Questions>());
+const questionStore = createStore({ name: 'questions' }, withEntities<Questions>(), withActiveId());
 
 @Injectable({ providedIn: 'root' })
 export class QuizPageService {
@@ -12,7 +13,11 @@ export class QuizPageService {
     questionStore.update(setEntities(questions));
   }
 
-  public getQuestions() {
-    return questionStore.getValue().entities;
+  public getActiveQuestion() {
+    return questionStore.pipe(selectActiveEntity())
+  }
+
+  public getQuestions(): Observable<Questions[]> {
+    return questionStore.pipe(selectAllEntities());
   }
 }

@@ -1,0 +1,20 @@
+
+.quiz-page-warp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100svw;
+  height: 100svh;
+
+  mat-card {
+    max-width: 800px;
+
+    mat-card-content {
+      width: 800px;
+      height: fit-content;
+      max-height: 800px;
+      overflow-y: auto;
+    }
+  }
+}
